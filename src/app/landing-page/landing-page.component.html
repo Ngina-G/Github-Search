@@ -1,0 +1,31 @@
+<section class="home text-white text-center">
+    <!-- Landing Page Start -->
+    <div class="container center-container" #noUsers>
+      <div class="row">
+        <div class="col-10 col-lg-8 mx-auto pt-4">
+          <h3 class="home-para-1 py-2">
+            Make <strong class="gradient-text">GecKy</strong> Useful
+          </h3>
+          <h3 class="gradient-text home-para-2 py-2 pb-5 pb-sm-0">
+            Find A Github User
+          </h3>
+          <p class="d-none d-sm-block home-para-3 mx-auto py-3">
+            GecKy is a web app that helps you fetch Github users, view their
+            profile details and repositories
+          </p>
+        </div>
+      </div>
+  
+      <!-- Fetched Users Start -->
+      <app-search-form (newSearch)="newSearch($event)"></app-search-form>
+      <!-- Fetched Users End -->
+      <h6 class="text-white" *ngIf="defaultUser">
+        User:
+        <a routerLink="/{{ defaultUser.login }}/repos">
+          <strong class="gradient-text"
+            >{{ defaultUser.login }}
+            <i class="fa-solid fa-arrow-up-right-from-square"></i></strong
+        ></a>
+      </h6>
+    </div>
+    </section>
