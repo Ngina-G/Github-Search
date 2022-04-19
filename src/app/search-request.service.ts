@@ -9,22 +9,13 @@ import { BehaviorSubject, lastValueFrom } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchRequestService {
-  repos!: Repository;
-  users: User;
-  newRepository: any;
-  searchRepo: any;
+  // repos!: Repository;
+  // users: User;
+  // newRepository: any;
+  // searchRepo: any;
 
 
-  async getRepos(username: string) {
-    this.repos = [];
-    const value = this.http.get<Repo[]>(
-      `${environment.githubApi}/users/${username}/repos?per_page=50`    );
-    await lastValueFrom(value)
-      .then((repos) => (this.repos = repos))
-      .catch((error) => error);
-    return this.repos;
-    // console.log(this.repos);
-  }
+  constructor(private http: HttpClient) {}
 
 
   // githubUser(searchName:any) {

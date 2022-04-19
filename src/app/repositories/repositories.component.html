@@ -1,33 +1,48 @@
-<div class="container">
-    <div class="row ">
-    <div class="col-md-9 text-center">
-      <!-- <app-search-form (getName)='searchRepos($event)'></app-search-form> -->
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-11">
-      <div >
-        <div class="table">
-          <table class="table">
-            <tbody>
-             <tr *ngFor=" let repository of gitRepoRequest.searchRepo" >
-              <td>
-                <h4>
-                  <a style="text-align: center" href="{{repository.html_url}} " >{{repository.name}}</a>
-                </h4>
-                <p > Repository Owner:
-                  <a href="{{repository.owner.html_url}}">{{repository.owner.login}}</a>
-                </p>
-                <p>Date Created : {{repository.created_at|date}}</p>
-                <p>Description : {{repository.description}}</p>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-          <hr>
+<div class="container-fluid repos-container px-5">
+    <div class="row" *ngIf="repos.length > 0">
+      <div class="col-lg-4 mx-auto" *ngFor="let repo of repos">
+        <div class="card my-3 px-5 py-3">
+          <div class="card-body">
+            <div class="row no-gutters">
+              <div class="col-lg-3 align-self-center">
+                <i class="fa-brands fa-github-square fa-6x gradient-text"></i>
+              </div>
+              <div class="col-lg-9 pl-4">
+                <h3 class="gradient-text">{{ repo.name }}</h3>
+                <ul class="p-0 m-0 text-white">
+  
+                  <li class="nav-link p-0">
+                    Licence:
+                    <small class="text-secondary">
+                      <b>{{ repo.licence }}</b></small
+                    >
+                  </li>
+                  <li class="nav-link p-0">
+                    Created Date:
+                    <small class="text-secondary">
+                      <b>{{ repo.created_at | timeago }}</b></small
+                    >
+                  </li>
+                  <li class="nav-link p-0">
+                    Last Update:
+                    <small class="text-secondary">
+                      <b>{{ repo.updated_at | timeago }}</b></small
+                    >
+                  </li>
+                  <li class="nav-link p-0">
+                    <a
+                      class="nav-link p-0 text-white gradient-text"
+                      href="{{ repo.html_url }}"
+                      target="_blank"
+                    >
+                      Go To Repo
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
-</div>

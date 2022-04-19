@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchRequestService } from '../search-request.service';
 import { Repository } from '../repository';
+import { RepoService } from '../repo.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-repositories',
@@ -9,27 +10,49 @@ import { Repository } from '../repository';
 })
 export class RepositoriesComponent implements OnInit {
 
-  repository!: Repository;
-  public searchRepo!: string;
-  public resultCount = 12;
 
-  searchRepos() {
-      this.searchRepo = '';
-      this.resultCount = 10;
-      this.getDataFunction();
+  repos: Repository[] = [];
+  repoError: any;
 
+  constructor(
+    private repoService: RepoService,
+    private route: ActivatedRoute,
+  ) {}
+
+  ngOnInit(): void {
+    this.getUsername();
   }
 
-  constructor(public gitRepoRequest: SearchRequestService ) { }
+  getUsername(): void {
+    const username = String(this.route.snapshot.paramMap.get('username'));
+    this.repoService
+      .getRepos(username)
+      .then((repos) => {
+        this.repos = repos;
+      })
+      .catch((error) => (this.repoError = error));
+  }
+//   repository!: Repository;
+//   public searchRepo!: string;
+//   public resultCount = 12;
 
-ngOnInit() {
-      this.resultCount = 5;
-    this.gitRepoRequest.gitRepos(this.searchRepo);
-}
+//   searchRepos() {
+//       this.searchRepo = '';
+//       this.resultCount = 10;
+//       this.getDataFunction();
+
+//   }
+
+//   constructor(public gitRepoRequest: SearchRequestService ) { }
+
+// ngOnInit() {
+//       this.resultCount = 5;
+//     this.gitRepoRequest.gitRepos(this.searchRepo);
+// }
 
 
-    getDataFunction() {
-        this.gitRepoRequest.gitRepos(this.searchRepo);
+//     getDataFunction() {
+//         this.gitRepoRequest.gitRepos(this.searchRepo);
 
-    }
+//     }
 }
