@@ -17,6 +17,10 @@ export class SearchRequestService {
 
   constructor(private http: HttpClient) {}
 
+  getRequestLimit() {
+    return this.http.get<any>(environment.requestLimit);
+  }
+
 
   // githubUser(searchName:any) {
   //     interface ApiResponse {

@@ -9,8 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandingPageComponent } from './landing-page/landing-page.component'
-import { RouterModule } from '@angular/router';
-import { SearchRequestService } from './search-request.service';
 import { RepositoriesComponent } from './repositories/repositories.component';
 import { UserCompComponent } from './user-comp/user-comp.component';
 import { FormComponent } from './form/form.component';
@@ -34,7 +32,6 @@ import { RepositroriesPageComponent } from './repositrories-page/repositrories-p
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule,
     TimeagoModule.forRoot()
   ],
   providers: [],

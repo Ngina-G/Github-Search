@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
+import { observable } from 'rxjs';
 import { SearchRequestService } from './search-request.service';
 import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +13,9 @@ export class UserService {
   private defaultUsername = 'Ngina-G';
   private userSource = new BehaviorSubject<any>(null);
   user = this.userSource.asObservable();
+  GH_API_URL = 'https://api.github.com';
+  BASEREPO_URL: string = `https://api.github.com/users/${this.user}/repos`;
+  BASE_URL: string = '';
 
   constructor(
     private http: HttpClient,

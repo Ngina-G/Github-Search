@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { SearchRequestService } from '../search-request.service';
 
 @Component({
   selector: 'app-user-comp',
@@ -14,13 +15,13 @@ export class UserCompComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    // private requestLimitService: RequestLimitService
+    private searchRequestService: SearchRequestService
   ) {}
 
   ngOnInit(): void {
     this.userService.user.subscribe((user) => {
       this.user = user;
-      // this.requestLimitService.getRequestLimit().subscribe();
+      this.searchRequestService.getRequestLimit().subscribe();
     });
   }
 

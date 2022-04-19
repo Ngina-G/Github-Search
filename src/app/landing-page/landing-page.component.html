@@ -16,16 +16,14 @@
         </div>
       </div>
   
-      <!-- Fetched Users Start -->
-      <app-form (newSearch)="newSearch($event)"></app-form> -->
-      <!-- Fetched Users End -->
+      <app-form (newSearch)="newSearch($event)"></app-form>
       <h6 class="text-white" *ngIf="defaultUser">
         User:
         <a routerLink="/{{ defaultUser.login }}/repos">
-          <strong class="gradient-text"
-            >{{ defaultUser.login }}
-            <i class="fa-solid fa-arrow-up-right-from-square"></i></strong
-        ></a>
+          <strong class="gradient-text">{{ defaultUser.login }}
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </strong>
+        </a>
       </h6>
     </div>
     </section>

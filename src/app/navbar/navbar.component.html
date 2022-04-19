@@ -31,24 +31,6 @@
               <span class="badge-info badge">{{ user.public_repos }}</span></a
             >
           </li>
-          <li class="nav-item" *ngIf="user">
-            <a
-              routerLink="/{{ user.login }}/followers"
-              routerLinkActive="active"
-              class="nav-link py-4"
-              >Followers
-              <span class="badge badge-info">{{ user.followers }}</span></a
-            >
-          </li>
-          <li class="nav-item" *ngIf="user">
-            <a
-              routerLink="/{{ user.login }}/following"
-              routerLinkActive="active"
-              class="nav-link py-4"
-              >Following
-              <span class="badge badge-info"> {{ user.following }}</span></a
-            >
-          </li>
           <li class="nav-item">
             <a
               href="https://api.github.com/rate_limit"

@@ -22,5 +22,5 @@ export class RepoService {
       .then((repos) => (this.repos = repos))
       .catch((error) => error);
     return this.repos;
-    // console.log(this.repos);
+    console.log(this.repos);
   }}

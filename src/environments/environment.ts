@@ -4,8 +4,17 @@
 
 export const environment = {
   production: false,
-  githubApi:"https://api.github.com/users/daneden?access_token=' + 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"
-};
+//   githubApi:"https://api.github.com/users/daneden?access_token=' + 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",
+    githubApi: 'https://api.github.com',
+  requestLimit: "https://api.github.com/rate_limit"}
+//     const response = await fetch('https://api.github.com/repos/facebook/react/issues', {
+//         headers: {
+//             'Authorization': 'token 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',
+//         }
+//     })
+//     return await response.json()
+// }
+// };
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

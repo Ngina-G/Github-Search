@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Repository } from '../repository';
 import { RepoService } from '../repo.service';
 import { ActivatedRoute } from '@angular/router';
+import { SearchRequestService } from '../search-request.service';
 
 @Component({
   selector: 'app-repo-comp',
@@ -15,6 +16,7 @@ export class RepoCompComponent implements OnInit {
 
   constructor(
     private repoService: RepoService,
+    private searchRequestService: SearchRequestService,
     private route: ActivatedRoute,
   ) {}
 
@@ -28,7 +30,7 @@ export class RepoCompComponent implements OnInit {
       .getRepos(username)
       .then((repos) => {
         this.repos = repos;
-        // this.requestLimitService.getRequestLimit().subscribe();
+        this.searchRequestService.getRequestLimit().subscribe();
       })
       .catch((error) => (this.repoError = error));
   }
