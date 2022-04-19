@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { User } from './user';
+import { Repository } from './repository';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class SearchRequestService {
       this.users = new User('', '', '', 0, '', new Date(), 0, 0);
   }
 
-  githubUser(searchName) {
+  githubUser(searchName:any) {
       interface ApiResponse {
           name: string;
           html_url: string;
@@ -30,8 +31,8 @@ export class SearchRequestService {
           avatar_url: string;
       }
 
-      const promise = new Promise((resolve) => {
-          this.http.get<ApiResponse>('https://api.github.com/users/' + searchName + '?access_token=' + environment.myApi).toPromise().then(getResponse => {
+      const promise = new Promise((resolve:any) => {
+          this.http.get<ApiResponse>('https://api.github.com/users/' + searchName + '?access_token=' + environment.githubApi).toPromise().then(getResponse => {
               this.users.name = getResponse.name;
               this.users.html_url = getResponse.html_url;
               this.users.login = getResponse.login;
@@ -47,14 +48,14 @@ export class SearchRequestService {
 
   }
 
-  gitUserRepos(searchMe) {
+  gitUserRepos(searchMe:any) {
       interface ApiResponse {
           name: string;
           description: string;
           created_at: Date;
       }
 
-      const myPromise = new Promise((resolve, reject) => {
+      const myPromise = new Promise((resolve:any, reject) => {
           this.http.get<ApiResponse>('https://api.github.com/users/' + searchMe + '/repos?order=created&sort=asc?access_token=' + environment.myApi).toPromise().then(getRepoResponse => {
               this.newRepository = getRepoResponse;
               resolve();
@@ -66,12 +67,12 @@ export class SearchRequestService {
   }
 
 
-  gitRepos(searchName) {
+  gitRepos(searchName:any) {
       interface ApiResponse {
           items: any;
       }
 
-      const promise = new Promise((resolve, reject) => {
+      const promise = new Promise((resolve:any, reject) => {
           this.http.get<ApiResponse>('https://api.github.com/search/repositories?q=' + searchName + ' &per_page=10 ' + environment.githubApi).toPromise().then(getRepoResponse => {
               this.searchRepo = getRepoResponse.items;
 

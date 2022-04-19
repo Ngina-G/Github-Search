@@ -10,15 +10,15 @@ import { User } from '../user';
 })
 export class LandingPageComponent implements OnInit {
   public searchMe = 'Ngina-G';
-  public githubUser: string;
+  public githubUser!: string;
 
-  users: User ;
-  repository: Repository;
-  public searchRepo: string;
+  users!: User ;
+  repository!: Repository;
+  public searchRepo!: string;
   public resultCount = 13;
 
 
-  findUser(username) {
+  findUser(username:any) {
       this.githubUser = '';
       this.searchMe  = username;
       this.ngOnInit();
