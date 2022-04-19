@@ -2,8 +2,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-import { UserService } from '../../services/user.service';
-import { User } from '../../models/User';
+// import { UserService } from '../../services/user.service';
+// import { User } from '../User';
 
 @Component({
   selector: 'app-landing-page',
