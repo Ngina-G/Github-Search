@@ -1,16 +1,8 @@
-
-  
-<nav class="navbar navbar-expand-sm" style="background-color: #2f38bf;">
-    <div class="container-fluid mx-5 px-1">
+<nav class="navbar navbar-expand-sm " style="background-color: #2f38bf;">
+    <div class="container-fluid mx-5 px-1 d-flex flex-row justify-content-center">
+      <div>
       <a href="#" class="navbar-brand d-none" *ngIf="user">{{ user.login }}</a>
-      <a routerLink="/" class="navbar-brand"
-        ><img
-          src="https://i.postimg.cc/FFkynZKf/logo-1.png"
-          alt="logo"
-          class="d-none d-md-block"
-          width="15%"
-        />
-      </a>
+      <h1 style="color: #fca311; font-family: 'Fredericka the Great', cursive;">PEEPS</h1>
       <button
         class="navbar-toggler"
         type="button"
@@ -19,9 +11,10 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+      </div>
   
       <div id="main-nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto text-white" >
+        <ul class="navbar-nav ml-auto text-white " >
           <li class="nav-item" *ngIf="user">
             <a
               routerLink="/{{ user.login }}/repos"
@@ -52,5 +45,6 @@
           </li>
         </ul>
       </div>
+
     </div>
   </nav>

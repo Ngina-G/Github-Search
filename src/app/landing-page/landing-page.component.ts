@@ -34,4 +34,5 @@ export class LandingPageComponent implements OnInit {
           ? `No user with username: ${username}`
           : 'Check username and try again'
       );
-  }}
+  }
+}

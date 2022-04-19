@@ -7,7 +7,7 @@
             Find Your <strong style="color: #fca311;">Github</strong> Peeps
           </h3>
           <p class="d-none d-sm-block home-para-3 mx-auto py-3">
-            <strong>GitPeeps</strong> is a web app that helps you fetch your peep's Github user account, view their
+            <strong>Peeps</strong>fetch a friend's Github user account, view their
             profile details and repositories!
           </p>
         </div>
@@ -15,7 +15,7 @@
   
       <app-form (newSearch)="newSearch($event)"></app-form>
       <h6 class="text-white" *ngIf="defaultUser">
-        Current Peep's Account Name:
+        Click here to see Ngina-G's Repositories:
         <a routerLink="/{{ defaultUser.login }}/repos">
           <strong class="gradient-text" style="color: #0bebaf;">{{ defaultUser.login }}
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -23,6 +23,8 @@
         </a>
       </h6>
     </div>
+
+    <app-user-comp></app-user-comp>
     </section>
 
 
