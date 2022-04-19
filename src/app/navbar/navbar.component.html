@@ -1,0 +1,72 @@
+
+  
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container-fluid mx-5 px-5">
+      <a href="#" class="navbar-brand d-none" *ngIf="user">{{ user.login }}</a>
+      <a routerLink="/" class="navbar-brand"
+        ><img
+          src="https://i.postimg.cc/FFkynZKf/logo-1.png"
+          alt="logo"
+          class="d-none d-md-block"
+          width="15%"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#main-nav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div id="main-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto text-white">
+          <li class="nav-item" *ngIf="user">
+            <a
+              routerLink="/{{ user.login }}/repos"
+              routerLinkActive="active"
+              class="nav-link py-4"
+              >Repositories
+              <span class="badge-info badge">{{ user.public_repos }}</span></a
+            >
+          </li>
+          <li class="nav-item" *ngIf="user">
+            <a
+              routerLink="/{{ user.login }}/followers"
+              routerLinkActive="active"
+              class="nav-link py-4"
+              >Followers
+              <span class="badge badge-info">{{ user.followers }}</span></a
+            >
+          </li>
+          <li class="nav-item" *ngIf="user">
+            <a
+              routerLink="/{{ user.login }}/following"
+              routerLinkActive="active"
+              class="nav-link py-4"
+              >Following
+              <span class="badge badge-info"> {{ user.following }}</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="https://api.github.com/rate_limit"
+              target="_blank"
+              class="nav-link ml-3 my-3 bg-light btn btn-sm text-dark"
+            >
+              Requests:
+              <b
+                class="badge badge-info"
+                [ngClass]="{
+                  'badge-danger': requests.remaining < 15,
+                  'badge-warning': requests.remaining < 30
+                }"
+                >{{ requests.used }} | <span>{{ requests.limit }}</span></b
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
