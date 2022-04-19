@@ -1,9 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
+import { SearchRequestService } from '../search-request.service';
 import { Router } from '@angular/router';
-
-// import { UserService } from '../../services/user.service';
-// import { User } from '../User';
+import { User } from '../user';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,27 +9,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
-  defaultUser!: User;
-  @Output() user: EventEmitter<User> = new EventEmitter();
+  public searchMe = 'Ngina-G';
+  public githubUser: string;
 
-  constructor(private userService: UserService, private router: Router) {}
+  users: User ;
+  repository: Repository;
+  public searchRepo: string;
+  public resultCount = 13;
 
-  ngOnInit(): void {
-    this.userService.user.subscribe((user) => (this.defaultUser = user));
+
+  findUser(username) {
+      this.githubUser = '';
+      this.searchMe  = username;
+      this.ngOnInit();
   }
 
-  newSearch(username: string): void {
-    this.userService
-      .getUser(username)
-      .then((users) => {
-        if (users.length === 1) {
-          this.router.navigate([`/${this.defaultUser.login}/repos`]);
-        }
-      })
-      .catch((error) =>
-        error.status === 404
-          ? `No user with username: ${username}`
-          : 'Check username and try again'
-      );
-  }
+
+constructor(public githubUserRequest: SearchRequestService, public userRepos: SearchRequestService) { }
+
+ngOnInit() {
+    this.githubUserRequest.githubUser(this.searchMe);
+    this.users = this.githubUserRequest.users;
+    this.userRepos.gitUserRepos(this.searchMe);
+    console.log(this.userRepos);
 }
+
+
+  searchRepos() {
+      this.searchRepo = '';
+      this.resultCount = 10;
+
+  }}
