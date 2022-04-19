@@ -5,6 +5,7 @@ export interface User {
   public_repos:number;
   html_url: string;
   created_at:string;
+  updated_at:string;
   followers:number;
   following:number;
 }

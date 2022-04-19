@@ -12,6 +12,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component'
 import { RouterModule } from '@angular/router';
 import { SearchRequestService } from './search-request.service';
 import { RepositoriesComponent } from './repositories/repositories.component';
+import { UserCompComponent } from './user-comp/user-comp.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RepositoriesComponent } from './repositories/repositories.component';
     NavbarComponent,
     LandingPageComponent,
     RepositoriesComponent,
+    UserCompComponent,
     
   ],
   imports: [

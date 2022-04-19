@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-10 col-sm-6 col-md-4 mx-auto" *ngIf="user">
+        <div class="card my-3 px-5 py-2">
+          <div class="card-body">
+            <div class="row no-gutters">
+              <div class="col-lg-3 align-self-center">
+                <img
+                  src="{{ user.avatar_url }}"
+                  class="img-fluid rounded-circle"
+                />
+              </div>
+              <div class="col-lg-9 pl-4 text-left">
+                <h3 class="gradient-text">{{ user.login }}</h3>
+                <ul class="p-0 m-0 text-white">
+                  <li class="nav-link p-0">
+                    Last Activity:
+                    <small class="text-secondary">
+                      <b>{{ user.updated_at | timeago }}</b></small
+                    >
+                  </li>
+  
+                  <li class="nav-link p-0">
+                    Followers:
+                    <small class="text-secondary">
+                      <b>{{ user.followers }}</b></small
+                    >
+                  </li>
+                  <li class="nav-link p-0">
+                    Following:
+                    <small class="text-secondary">
+                      <b>{{ user.following }}</b></small
+                    >
+                  </li>
+                  <li class="nav-link px-0 py-2 m-0">
+                    <a
+                      class="nav-link p-0 m-0 text-left text-white gradient-text"
+                      href="{{ user.html_url }}"
+                      target="_blank"
+                    >
+                      View User On Github
+                    </a>
+                  </li>
+                </ul>
+                <div>
+                  <i class="gradient-text fa-solid fa-arrow-down-a-z fa-3x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
