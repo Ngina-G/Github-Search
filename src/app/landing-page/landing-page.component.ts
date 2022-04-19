@@ -1,11 +1,13 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { SearchRequestService } from '../search-request.service';
-import { Router } from '@angular/router';
 import { User } from '../user';
+import { Repository } from '../repository';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
+  providers: [ SearchRequestService],
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
@@ -25,7 +27,10 @@ export class LandingPageComponent implements OnInit {
   }
 
 
-constructor(public githubUserRequest: SearchRequestService, public userRepos: SearchRequestService) { }
+constructor(
+  public http: HttpClient,
+  public githubUserRequest: SearchRequestService, 
+  public userRepos: SearchRequestService) { }
 
 ngOnInit() {
     this.githubUserRequest.githubUser(this.searchMe);
