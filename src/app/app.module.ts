@@ -10,12 +10,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandingPageComponent } from './landing-page/landing-page.component'
 import { RouterModule } from '@angular/router';
 import { SearchRequestService } from './search-request.service';
+import { RepositoriesComponent } from './repositories/repositories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LandingPageComponent,
+    RepositoriesComponent,
     
   ],
   imports: [
