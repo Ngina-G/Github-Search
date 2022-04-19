@@ -1,7 +1,7 @@
 
   
-<nav class="navbar navbar-expand-sm navbar-dark">
-    <div class="container-fluid mx-5 px-5">
+<nav class="navbar navbar-expand-sm" style="background-color: #2f38bf;">
+    <div class="container-fluid mx-5 px-1">
       <a href="#" class="navbar-brand d-none" *ngIf="user">{{ user.login }}</a>
       <a routerLink="/" class="navbar-brand"
         ><img
@@ -21,12 +21,13 @@
       </button>
   
       <div id="main-nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto text-white">
+        <ul class="navbar-nav ml-auto text-white" >
           <li class="nav-item" *ngIf="user">
             <a
               routerLink="/{{ user.login }}/repos"
               routerLinkActive="active"
               class="nav-link py-4"
+              style="color: #0bebaf;"
               >Repositories
               <span class="badge-info badge">{{ user.public_repos }}</span></a
             >
@@ -35,7 +36,8 @@
             <a
               href="https://api.github.com/rate_limit"
               target="_blank"
-              class="nav-link ml-3 my-3 bg-light btn btn-sm text-dark"
+              class="nav-link ml-3 my-3  btn btn-sm text-dark"
+              style="background-color: #fca311;"
             >
               Requests:
               <b

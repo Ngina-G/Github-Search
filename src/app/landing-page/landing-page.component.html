@@ -3,24 +3,21 @@
     <div class="container center-container" #noUsers>
       <div class="row">
         <div class="col-10 col-lg-8 mx-auto pt-4">
-          <h3 class="home-para-1 py-2">
-            Make <strong class="gradient-text">GecKy</strong> Useful
-          </h3>
           <h3 class="gradient-text home-para-2 py-2 pb-5 pb-sm-0">
-            Find A Github User
+            Find Your <strong style="color: #fca311;">Github</strong> Peeps
           </h3>
           <p class="d-none d-sm-block home-para-3 mx-auto py-3">
-            GecKy is a web app that helps you fetch Github users, view their
-            profile details and repositories
+            <strong>GitPeeps</strong> is a web app that helps you fetch your peep's Github user account, view their
+            profile details and repositories!
           </p>
         </div>
       </div>
   
       <app-form (newSearch)="newSearch($event)"></app-form>
       <h6 class="text-white" *ngIf="defaultUser">
-        User:
+        Current Peep's Account Name:
         <a routerLink="/{{ defaultUser.login }}/repos">
-          <strong class="gradient-text">{{ defaultUser.login }}
+          <strong class="gradient-text" style="color: #0bebaf;">{{ defaultUser.login }}
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </strong>
         </a>
