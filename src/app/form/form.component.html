@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+      <div class="col-10 col-lg-8 mx-auto">
+        <form (ngSubmit)="onSubmit(username)">
+          <div class="form-group">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              [(ngModel)]="username"
+              autocomplete="off"
+              autofocus
+              class="form-control form-control-lg search-input text-center col-lg-6 mx-auto"
+              placeholder="Enter github username..."
+            />
+          </div>
+          <p
+            class="gradient-text text-center"
+            [style.visibility]="username.length > 0 ? 'visible' : 'hidden'"
+          >
+            Press enter to search
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -13,6 +13,9 @@ import { RouterModule } from '@angular/router';
 import { SearchRequestService } from './search-request.service';
 import { RepositoriesComponent } from './repositories/repositories.component';
 import { UserCompComponent } from './user-comp/user-comp.component';
+import { FormComponent } from './form/form.component';
+import { RepoCompComponent } from './repo-comp/repo-comp.component';
+import { RepositroriesPageComponent } from './repositrories-page/repositrories-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { UserCompComponent } from './user-comp/user-comp.component';
     LandingPageComponent,
     RepositoriesComponent,
     UserCompComponent,
+    FormComponent,
+    RepoCompComponent,
+    RepositroriesPageComponent,
     
   ],
   imports: [

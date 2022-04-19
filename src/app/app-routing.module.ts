@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { RepositroriesPageComponent } from './repositrories-page/repositrories-page.component';
 
 const routes: Routes = [
-  { path: 'users', component: LandingPageComponent },
+  { path: '', component: LandingPageComponent },
+  { path: ':username/repos', component: RepositroriesPageComponent },
   { path: '**', component: LandingPageComponent },
-  // {path: 'users', component: SearchComponent},
-  // {path: 'repository', component: RepositoriesComponent},
-  {path: '', redirectTo: '/users', pathMatch: 'full'},
 ];
 
 @NgModule({
